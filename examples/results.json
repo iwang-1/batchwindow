@@ -1,0 +1,35 @@
+[
+  {
+    "policy": "single",
+    "metrics": {
+      "requests": 12,
+      "batches": 12,
+      "late": 7,
+      "device_ticks": 372,
+      "padding_tokens": 0,
+      "p95_latency_ticks": 202
+    }
+  },
+  {
+    "policy": "fifo",
+    "metrics": {
+      "requests": 12,
+      "batches": 3,
+      "late": 12,
+      "device_ticks": 484,
+      "padding_tokens": 220,
+      "p95_latency_ticks": 330
+    }
+  },
+  {
+    "policy": "deadline",
+    "metrics": {
+      "requests": 12,
+      "batches": 9,
+      "late": 4,
+      "device_ticks": 338,
+      "padding_tokens": 2,
+      "p95_latency_ticks": 216
+    }
+  }
+]
