@@ -1,0 +1,50 @@
+{
+  "minimum_deadline_misses": 1,
+  "batches": [
+    {
+      "ids": [
+        "r01",
+        "r02"
+      ],
+      "start": 1,
+      "finish": 37,
+      "late": [
+        "r01"
+      ]
+    },
+    {
+      "ids": [
+        "r04",
+        "r05"
+      ],
+      "start": 37,
+      "finish": 69,
+      "late": []
+    },
+    {
+      "ids": [
+        "r07",
+        "r08"
+      ],
+      "start": 69,
+      "finish": 109,
+      "late": []
+    },
+    {
+      "ids": [
+        "r03"
+      ],
+      "start": 109,
+      "finish": 169,
+      "late": []
+    },
+    {
+      "ids": [
+        "r06"
+      ],
+      "start": 169,
+      "finish": 213,
+      "late": []
+    }
+  ]
+}
