@@ -34,3 +34,7 @@ Single-request serving drains by arrival order. FIFO batching packs the oldest c
 The offline reference minimizes total misses with advance knowledge of up to ten requests. It enumerates feasible next batches and retains the earliest finish for each completed-request subset and miss count. An earlier finish can reproduce every later schedule by waiting. For a fixed batch ordering, starting as soon as its members are available can only improve completion times. These two properties let the search discard dominated schedules.
 
 The regression suite checks resource limits, causality, completion and accounting across 50 seeded traces under all three policies. A separate test compares the exact solver against exhaustive orderings and batch cuts on twelve four-request fixtures.
+
+## How far are the online policies from optimal?
+
+Run `python3 sweep.py` to compare all three policies against the exact miss count on 48 eight-request traces, across bursty arrivals, uniform lengths and mixed lengths. Under bursty arrivals FIFO missed a median of six more deadlines than the optimum, while the deadline-aware scheduler missed three more. Under uniform lengths their median gaps were both two, and the deadline policy's worst gap was five versus three for FIFO. With these inputs, optimizing the dispatch decision for the earliest deadline can still leave other requests waiting. [Full results and denominators](examples/oracle-sweep.json)
