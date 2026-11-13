@@ -12,3 +12,4 @@ jobs:
           python-version: '3.12'
       - run: python -m unittest discover -v
       - run: python planner.py examples/burst.csv | diff -u examples/results.json -
+      - run: python sweep.py | diff -u examples/oracle-sweep.json -
