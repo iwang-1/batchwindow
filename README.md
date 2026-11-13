@@ -38,3 +38,7 @@ The regression suite checks resource limits, causality, completion and accountin
 ## How far are the online policies from optimal?
 
 Run `python3 sweep.py` to compare all three policies against the exact miss count on 48 eight-request traces, across bursty arrivals, uniform lengths and mixed lengths. Under bursty arrivals FIFO missed a median of six more deadlines than the optimum, while the deadline-aware scheduler missed three more. Under uniform lengths their median gaps were both two, and the deadline policy's worst gap was five versus three for FIFO. With these inputs, optimizing the dispatch decision for the earliest deadline can still leave other requests waiting. [Full results and denominators](examples/oracle-sweep.json)
+
+### Inspect a schedule that attains the lower bound
+
+Run `python3 oracle.py examples/oracle-burst.csv --schedule` to reconstruct the optimal batches, dispatch times and missed requests from the dynamic program. The eight-request example has one unavoidable miss under the configured model. Each batch in the [witness](examples/optimal-schedule.json) can be checked directly against arrivals and the padded-token budget. Tests validate reconstructed schedules on 30 seeded traces, in addition to the exhaustive small-case score checks.
