@@ -1,6 +1,14 @@
 # BatchWindow
 
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/) [![dependencies: standard library only](https://img.shields.io/badge/dependencies-stdlib_only-brightgreen)](#)
+
 A trace-driven simulator for deadline-aware inference batching. Packing more requests into each batch saves launch overhead. A single long input can undo that saving because every input in the batch gets padded to its length. BatchWindow compares three online scheduling policies on the same arrival stream and includes an exact offline reference for small traces.
+
+## At a glance
+
+- **Deadline-aware batching** cut late requests from **12 of 12** (FIFO) to **4 of 12**, using **30% less device time** (338 vs 484 ticks) and **2 vs 220** padding tokens on the recorded burst trace.
+- **Exact offline optimum** via dynamic programming with dominance pruning, checked against exhaustive search, used to measure how far each online policy is from optimal.
+- **Sweep of 48 traces:** under bursty arrivals the deadline policy's median gap to optimal was **3 misses vs 6** for FIFO.
 
 ## Run it
 
